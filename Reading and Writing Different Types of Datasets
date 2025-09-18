@@ -1,0 +1,27 @@
+data_csv_local<-read.csv("sample_data.csv",header=TRUE)
+cat("CSV Data from local file:/n")
+print(data_csv_local)
+
+data_txt_local<-read.table("sample_data.txt",header=TRUE,sep="\t")
+cat("TXT Data from local file:\n")
+print(data_txt_local)
+
+csv_url<-"https://ak/data/csv/airtravel.csv")
+data_csv_web<-read.csv(csv_url)
+cat("CSV Data from web:\n")
+print(head(data_csv_web))
+
+
+
+library(readxl)
+excel_data <- read_excel("C:/Users/YourName/Documents/students.xlsx") 
+print(excel_data)
+
+
+
+install.packages("xml2") 
+library(xml2) 
+# Example XML file: students.xml 
+ 
+xml_data <- read_xml("C:/Users/YourName/Documents/students.xml") 
+print(xml_data)
