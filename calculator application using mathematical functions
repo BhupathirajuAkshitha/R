@@ -1,0 +1,24 @@
+values <- c(3, 12, 15, 1, 18, 21) 
+cat("Min value:",min(values)) 
+cat("Max value:",max(values)) 
+cat("Mean value:",mean(values)) 
+ 
+x <- 3.14266 
+rnd_value <- round(x, digits = 2) 
+cat("Round value upto 2 decimals:",rnd_value) 
+ 
+ 
+#random numbers from a standard normal distribution 
+rnum <- rnorm(5) 
+cat("Normal Distribution:",rnum) 
+ 
+ 
+#It calculates the binomial distribution's probability density function (PDF). 
+x <- 3 
+size <- 10 
+prob <- 0.3 
+dens <- dbinom(x, size, prob) 
+cat("Binomial Distribution's probability density function:",dens) 
+#It generates n random numbers from a Poisson distribution. 
+rnum <- rpois(n=5, lambda=5) 
+cat("Poisson Distribution:",rnum)
