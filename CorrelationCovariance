@@ -1,0 +1,11 @@
+install.packages("corrplot")
+library(ggplot2)
+library(corrplot)
+library(dplyr)
+data(iris)
+numeric_iris<-iris[,1:4]
+cor_matrix<-cor(numeric_iris)
+print(cor_matrix)
+corrplot(cor_matrix,method="color",type="upper",tl.col="black",tl.srt=45,addcoef.col="black",mar=c(0,0,1,0)
+annova_model<-aov(Sepal.Length~Species,data=iris)
+summary(annova_model)
