@@ -1,0 +1,52 @@
+Tidyr 
+library(tidyr) 
+# Sample wide data 
+data <- data.frame( 
+name = c("Alice", "Bob"), 
+math = c(80, 90), 
+science = c(85, 88)) 
+# Convert to long format 
+long_data <- pivot_longer(data, cols = c(math, science), names_to = "subject", values_to = "score") 
+print(long_data) 
+
+
+Ggplot2 
+library(ggplot2) 
+df <- data.frame(x = 1:10, y = (1:10)^2) 
+ggplot(df, aes(x = x, y = y)) + 
+geom_point(color = "blue") + 
+labs(title = "Simple Scatter Plot") 
+
+
+ggraph 
+library(ggraph) 
+library(igraph) 
+graph <- graph_from_edgelist(cbind(c("A", "B", "C"), c("B", "C", "D"))) 
+ggraph(graph, layout = 'circle') + 
+geom_edge_link() + 
+geom_node_point() + 
+geom_node_text(aes(label = name), vjust = 1.5) 
+
+
+
+
+
+library(glue) 
+name <- "Alice" 
+score <- 95 
+message <- glue("Hello {name}, your score is {score}!") 
+print(message) 
+Hello Alice, your score is 95! 
+library(shiny) 
+ui <- fluidPage( 
+titlePanel("Simple Shiny App"), 
+sidebarLayout( 
+sidebarPanel( 
+sliderInput("num", "Choose a number", 1, 100, 50) 
+), 
+mainPanel( 
+textOutput("result")))) 
+server <- function(input, output) { 
+output$result <- renderText({ 
+paste("You selected:", input$num) })} 
+shinyApp(ui = ui, server = server)
