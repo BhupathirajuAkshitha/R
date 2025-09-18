@@ -1,0 +1,29 @@
+num1 <- as.numeric(readline(prompt = "Enter first number: ")) 
+num2 <- as.numeric(readline(prompt = "Enter second number: ")) 
+# Ask the user to choose an operation 
+cat("Select operation:\n") 
+cat("1: Addition\n") 
+cat("2: Subtraction\n") 
+cat("3: Multiplication\n") 
+cat("4: Division\n") 
+cat("5: Remainder\n") 
+selected_option <- as.integer(readline(prompt = "Enter choice (1/2/3/4/5): ")) 
+ 
+# Based on the user's choice, perform the operation 
+switch(selected_option, 
+'1' = {result <- num1 + num2}, 
+'2' = {result <- num1 - num2}, 
+'3' = {result <- num1 * num2}, 
+'4' = { 
+if(num2 != 0) { 
+result <- num1 / num2 
+} else { 
+result <- "Undefined (division by zero)" 
+} 
+}, 
+'5' = {result <- num1 %% num2}, 
+{result <- "Invalid choice"} 
+) 
+ 
+# Display the result 
+cat("Result: ", result, "\n")
