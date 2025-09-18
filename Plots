@@ -1,0 +1,47 @@
+student_data <- data.frame( 
+StudentID = 1:12, 
+Age = c(18, 19, 18, 20, 19, 21, 20, 22, 21, 23, 24, 17), 
+Score = c(85, 88, 90, 78, 95, 80, 89, 94, 100, 76, 40, 110), # 40 and 110 are outliers 
+Grade = c('B', 'B', 'A', 'C', 'A', 'C', 'B', 'A', 'A', 'C', 'D', 'A') 
+) 
+boxplot(student_data$Score, main = "Boxplot of Student Scores", ylab = "Score") 
+
+
+plot(student_data$Age, student_data$Score, 
+main = "Scatter Plot of Age vs Score", 
+xlab = "Age", 
+ylab = "Score", 
+pch = 19, col = "blue")
+
+
+bp <- boxplot(student_data$Score, main = "Boxplot of Student Scores with Outliers", ylab = "Score") 
+# Outliers detected by boxplot function 
+outliers <- bp$out 
+# Print the outliers and explain why they are outliers 
+for (value in outliers) { 
+# Calculate IQR to explain why it's an outlier 
+Q1 <- bp$stats[2] # 1st quartile 
+Q3 <- bp$stats[4] # 3rd quartile 
+IQR <- Q3 - Q1 
+if (value < (Q1 - 1.5 * IQR)) { 
+reason <- "Lower outlier (below Q1 - 1.5 * IQR)" 
+} else if (value > (Q3 + 1.5 * IQR)) { 
+reason <- "Upper outlier (above Q3 + 1.5 * IQR)" 
+} else { 
+reason <- "Not an outlier by IQR rule" 
+}
+cat("Outlier value:", value, "-", reason, "\n") 
+} 
+Outlier value: 40 - Lower outlier (below Q1 - 1.5 * IQR) 
+hist(student_data$Score, breaks=5, col="lightblue", 
+main="Histogram of Scores", 
+xlab="Score", 
+ylab="Frequency") 
+
+
+grade_counts <- table(student_data$Grade) 
+barplot(grade_counts, col="lightgreen", main="Bar Chart of Grades", 
+xlab="Grade", ylab="Count")
+
+
+pie(grade_counts, main="Pie Chart of Grades", col=rainbow(length(grade_counts))) 
