@@ -1,0 +1,25 @@
+#a) to find basic descriptive statistics using summary 
+data(mtcars) 
+cat("First few rows of the dataset:\n") 
+print(head(mtcars)) 
+cat("\nDescriptive statistics using summary():\n") 
+summary(mtcars)
+
+
+
+
+data(mtcars) 
+# View the first few rows 
+head(mtcars) 
+# Example 1: Subset where mpg > 20 
+subset1 <- subset(mtcars, mpg > 20) 
+print("Cars with mpg > 20:") 
+print(subset1) 
+# Example 2: Subset where cyl == 4 and hp > 100 
+subset2 <- subset(mtcars, cyl == 4 & hp > 100) 
+print("4-cylinder cars with hp > 100:") 
+print(subset2) 
+# Example 3: Select specific columns (mpg and hp) for cars with wt < 3 
+subset3 <- subset(mtcars, wt < 3, select = c(mpg, hp)) 
+print("mpg and hp of cars with weight < 3:") 
+print(subset3)
