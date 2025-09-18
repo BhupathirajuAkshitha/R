@@ -1,0 +1,25 @@
+# Input numbers stored in a vector 
+numbers <- numeric(2) 
+numbers[1] <- as.numeric(readline(prompt = "Enter first number: ")) 
+numbers[2] <- as.numeric(readline(prompt = "Enter second number: ")) 
+# Define the operations as a named list of functions 
+operations <- list( 
+Add = function(x, y) x + y, 
+Subtract = function(x, y) x - y, 
+Multiply = function(x, y) x * y, 
+Divide = function(x, y) if(y != 0) x / y else NA, 
+Remainder = function(x, y) if(y != 0) x %% y else NA 
+) 
+# Compute all results 
+results <- sapply(operations, function(f) f(numbers[1], numbers[2])) 
+ 
+# Create data frame with results 
+result_df <- data.frame( 
+Operation = names(results), 
+Result = results, 
+stringsAsFactors = FALSE 
+) 
+ 
+# Display input numbers and results 
+cat("Input numbers:", numbers[1], "and", numbers[2], "\n") 
+print(result_df) 
