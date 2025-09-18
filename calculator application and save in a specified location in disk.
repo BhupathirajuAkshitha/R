@@ -1,0 +1,45 @@
+add <- function(x, y) { 
+return(x + y) 
+} 
+ 
+ 
+subtract <- function(x, y) { 
+return(x - y) 
+} 
+ 
+ 
+multiply <- function(x, y) { 
+return(x * y) 
+} 
+ 
+ 
+divide <- function(x, y) { 
+if (y == 0) { 
+return("Error! Division by zero.") 
+} else { 
+return(x / y) 
+} 
+} 
+ 
+ 
+# Create a list to store calculator functions 
+calc_app <- list( 
+add = add, 
+subtract = subtract, 
+multiply = multiply, 
+divide = divide 
+) 
+ 
+ 
+# Specify the save location 
+save_location <- "C:/Users/Deekshitha/Desktop/calc_app.R" # Replace with your desired path
+# Save the R object 
+save(calc_app, file = save_location) 
+ 
+ 
+# Optional: Load the saved object to verify 
+# load(save_location) 
+print(calc_app$add(5, 3)) 
+print(calc_app$subtract(5, 3)) 
+print(calc_app$multiply(5, 3)) 
+print(calc_app$divide(5, 3))
